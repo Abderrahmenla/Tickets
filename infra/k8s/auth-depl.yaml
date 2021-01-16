@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: ecommerce/auth
+          image: stephengrider/auth
 ---
 apiVersion: v1
 kind: Service
