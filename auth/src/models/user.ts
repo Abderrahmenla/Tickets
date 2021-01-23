@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
     required: true
   }
 });
-
+//yolo 
 const User = mongoose.model('User', userSchema);
 
 const buildUser = (attrs:UserAttrs) => {
