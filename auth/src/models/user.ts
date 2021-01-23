@@ -5,7 +5,7 @@ interface UserAttrs{
   email: string;
   password: string;
 }
-// yolo
+
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
