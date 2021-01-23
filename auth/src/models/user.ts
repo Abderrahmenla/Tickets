@@ -16,8 +16,11 @@ const userSchema = new mongoose.Schema({
     required: true
   }
 });
+
 const User = mongoose.model('User', userSchema);
+
 const buildUser = (attrs:UserAttrs) => {
   return new User(attrs)
 }
+
 export { User };
