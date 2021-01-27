@@ -1,4 +1,6 @@
-import express,{Request,Response} from 'express'
+import express, { Request, Response } from 'express'
+import jwt from 'jsonwebtoken'
+
 import { body, validationResult } from 'express-validator'
 import {RequestValidationError} from '../errors/request-validation-errors'
 import { User } from '../models/user'
@@ -19,7 +21,17 @@ router.post('/api/users/signup', [
     
   if (existingUser) throw new BadRequestError('Email in use')
   const user = User.build({ email, password }) 
-  await user.save();  
+    await user.save(); 
+  // Generate JWT
+    const userJwt = jwt.sign({
+      id: user.id,
+      email:user.email
+    }, 'asdf')  
+    // store it on a session object
+    req.session = {
+      jwt: userJwt
+    };
+    
   res.status(201).send(user);  
 });
 export {router as signupRouter}
