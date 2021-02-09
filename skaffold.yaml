@@ -8,7 +8,7 @@ build:
   local:
     push: false
   artifacts:
-    - image: ecommerce/auth
+    - image: armageddon96/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -16,7 +16,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: ecommerce/client
+    - image: armageddon96/client
       context: client
       docker:
         dockerfile: Dockerfile
@@ -24,7 +24,7 @@ build:
         manual:
           - src: '**/*.js'
             dest: .
-    - image: ecommerce/tickets
+    - image: armageddon96/tickets
       context: tickets
       docker:
         dockerfile: Dockerfile
