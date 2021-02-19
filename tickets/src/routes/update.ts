@@ -2,6 +2,8 @@ import express, { Request, Response } from 'express'
 import { body } from 'express-validator'
 import { validateRequest, requireAuth, NotAuthorizedError, NotFoundError } from '@abderrahmenlh/common';
 import { Ticket } from '../models/ticket'
+import { TicketUpdatedPublisher } from '../events/publisher/ticket-updated-publisher'
+import { natsWrapper } from '../nats-wrapper'
 
 const router = express.Router();
 router.put('/api/tickets/:id',
@@ -17,13 +19,21 @@ router.put('/api/tickets/:id',
   validateRequest,
   async (req: Request, res: Response) => {
   const ticket = await Ticket.findById(req.params.id)
+    
   if (!ticket) throw new NotFoundError();
   if (ticket.userId !== req.currentUser!.id) throw new NotAuthorizedError();
+    
   ticket.set({
       title: req.body.title,
       price: req.body.price
     });
-  await ticket.save();
+    await ticket.save();
+    new TicketUpdatedPublisher(natsWrapper.client).publish({
+      id: ticket.id,
+      title: ticket.title,
+      price: ticket.price,
+      userId: ticket.userId,
+    })
   res.send(ticket);
 });
 
