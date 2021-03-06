@@ -1,5 +1,7 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
+import request from 'supertest';
+import { app } from '../app';
 import jwt from 'jsonwebtoken';
 
 declare global {
@@ -9,7 +11,9 @@ declare global {
     }
   }
 }
-jest.mock('../nats-wrapper.ts');
+
+jest.mock('../nats-wrapper');
+
 let mongo: any;
 beforeAll(async () => {
   process.env.JWT_KEY = 'asdfasdf';
