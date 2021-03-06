@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express'
 import { body } from 'express-validator'
 import { validateRequest, requireAuth, NotAuthorizedError, NotFoundError } from '@abderrahmenlh/common';
 import { Ticket } from '../models/ticket'
-import { TicketUpdatedPublisher } from '../events/publisher/ticket-updated-publisher'
+import { TicketUpdatedPublisher } from '../events/publishers/ticket-updated-publisher'
 import { natsWrapper } from '../nats-wrapper'
 
 const router = express.Router();
