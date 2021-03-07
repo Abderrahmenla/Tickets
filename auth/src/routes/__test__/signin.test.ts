@@ -1,8 +1,6 @@
 import request from 'supertest';
 import { app } from '../../app';
 
-// testing when the account doesn't exist
-
 it('fails when a email that does not exist is supplied', async () => {
   await request(app)
     .post('/api/users/signin')
@@ -12,8 +10,6 @@ it('fails when a email that does not exist is supplied', async () => {
     })
     .expect(400);
 });
-
-// testing when an invalid password is supplied
 
 it('fails when an incorrect password is supplied', async () => {
   await request(app)
@@ -32,8 +28,6 @@ it('fails when an incorrect password is supplied', async () => {
     })
     .expect(400);
 });
-
-// testing the cookie
 
 it('responds with a cookie when given valid credentials', async () => {
   await request(app)
