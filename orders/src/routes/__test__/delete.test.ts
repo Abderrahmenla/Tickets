@@ -3,9 +3,10 @@ import { app } from '../../app'
 import { Ticket } from '../../models/ticket'
 import { OrderStatus, Order } from '../../models/order'
 import { natsWrapper } from '../../nats-wrapper'
-
+import mongoose from 'mongoose'
 it('marks an order as cancelled', async () => {
   const ticket = Ticket.build({
+    id: mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
     price: 20
   })
@@ -25,12 +26,13 @@ it('marks an order as cancelled', async () => {
     .expect(204)
   // expectation to make sure the thing is cancelled 
   const updatedOrder = await Order.findById(order.id);
-  expect(updatedOrder!.status).toEqual(OrderStatus.Canceled);
+  expect(updatedOrder!.status).toEqual(OrderStatus.Cancelled);
 });
 
 it('emits a cancelled order event', async () => {
   
   const ticket = Ticket.build({
+    id: mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
     price: 20
   })
