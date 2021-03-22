@@ -1,7 +1,9 @@
 import mongoose from 'mongoose'
 import { OrderStatus } from '@abderrahmenlh/common'
+import { updateIfCurrentPlugin } from 'mongoose-update-if-current'
 
-interface OrderAttrs{
+
+interface OrderAttrs {
   id: string;
   version: number;
   userId: string;
@@ -9,14 +11,14 @@ interface OrderAttrs{
   status: OrderStatus;
 }
 
-interface OrderDoc extends mongoose.Document{
+interface OrderDoc extends mongoose.Document {
   version: number;
   userId: string;
   price: number;
-  status: OrderStatus;
+  status: OrderStatus;  
 }
 
-interface OrderModel extends mongoose.Model<OrderDoc>{
+interface OrderModel extends mongoose.Model<OrderDoc> {
   build(attrs: OrderAttrs): OrderDoc;
 }
 
@@ -31,7 +33,7 @@ const orderSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    required: true
+    required: true,
   }
 }, {
   toJSON: {
@@ -42,6 +44,9 @@ const orderSchema = new mongoose.Schema({
   }
 });
 
+orderSchema.set('versionKey', 'version'); // override mongoose and tell it not use __v flag
+orderSchema.plugin(updateIfCurrentPlugin);
+
 orderSchema.statics.build = (attrs: OrderAttrs) => {
   return new Order({
     _id: attrs.id,
@@ -51,5 +56,6 @@ orderSchema.statics.build = (attrs: OrderAttrs) => {
     status: attrs.status
   });
 };
-const Order = mongoose.model<OrderDoc, OrderModel>('order', orderSchema);
+
+const Order = mongoose.model<OrderDoc, OrderModel>('Order', orderSchema);
 export { Order };
