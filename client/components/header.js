@@ -6,9 +6,9 @@ export default Header = ({ currentUser }) => {
     !currentUser && { label: 'Sign In', href: '/auth/signin' },
     currentUser && { label: 'Sell Tickets', href: '/tickets/new' },
     currentUser && { label: 'My Orders', href: '/orders' },
-    currentUser && { label: 'Sign Out', href: '/auth/signout' }
+    currentUser && { label: 'Sign Out', href: '/auth/signout' },
   ]
-    .filter(linkConfig => linkConfig)
+    .filter((linkConfig) => linkConfig)
     .map(({ label, href }) => {
       return (
         <li key={href} className="nav-item">
