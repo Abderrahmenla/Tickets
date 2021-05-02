@@ -52,15 +52,22 @@ Ticketing is a highly scalable ecommerce app built with micro-services architect
 
    ```
 
-1. **Start developing.**
+3. **Edit /etc/hosts file.**
+  ```bash
+    sudo nano /etc/hosts
+    # add the following line
+    127.0.0.1 ticketing.dev
+  ```
+
+4. **Start developing.**
 
    ```bash
    skaffold dev
    ```
 
-1. **Open the source code and start editing!**
+5. **Open the source code and start editing!**
 
-   The site is now running at `http://localhost:8000`!
+   The site is now running at `http://ticketing.dev`!
 
 ## 🧐 What's inside?
 
