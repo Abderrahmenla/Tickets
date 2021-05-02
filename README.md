@@ -1,10 +1,3 @@
-<p align="center">
-  <br>
-  <a href="https://nodejs.dev">
-    <img src="./src/images/logos/nodejs-logo-light-mode.svg" width="200"/>
-  </a>
-</p>
-
 <h1 align="center"><a href="#">Ticketing.dev</a></h1>
 
 <p align="center">
