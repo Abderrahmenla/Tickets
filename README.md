@@ -96,43 +96,45 @@ A quick look at some of the top-level files and directories found in this projec
 
 3. **`/src`**: This directory will contain all of the code related to what you will see on the front-end/logic in the backend of the app site. "Src" is a convention for "source code."
 
-5.**`/client`**: this microservice is responsible for rendering the UI of the app (what you see in the browser), like your site header, or a page template. Built with love and nextJS
+ 5.**`/client`**: this microservice is responsible for rendering the UI of the app (what you see in the browser), like your site header, or a page template. Built     with love and nextJS
 
-6.**`/auth`**: this microservice is responsible for user authentification : signin & signup & signout. built with nodeJS-mongoDB
+ 6.**`/auth`**: this microservice is responsible for user authentification : signin & signup & signout. built with nodeJS-mongoDB
 
-7.**`/expiration`** this microservice is responsible for locking/unlocking the ticket ,built with nodeJS & redis 
+ 7.**`/expiration`** this microservice is responsible for locking/unlocking the ticket ,built with nodeJS & redis 
 
-8. **`/payments`**: This micrservice is responsible for the payments built with nodeJS and mongoDB as a DB.
+ 8. **`/payments`**: This micrservice is responsible for the payments built with nodeJS and mongoDB as a DB.
 
-9. **`/orders`**: This micrservice is responsible for creating/updating/deleting orders built with nodeJS and mongoDB as a DB.
+ 9. **`/orders`**: This micrservice is responsible for creating/updating/deleting orders built with nodeJS and mongoDB as a DB.
 
-10. **`/tickets`**: This micrservice is responsible for creating tickets/editing/deleting tickets built with nodeJS and mongoDB as a DB.
+ 10. **`/tickets`**: This micrservice is responsible for creating tickets/editing/deleting tickets built with nodeJS and mongoDB as a DB.
+ 11. **`/common`**: This is a shared libraray between microservices as an npm package.It contains all the reusable code that we will need in this app
 
-11. **`/__test__`**: Tests for this projects are stored in this directory. This project uses [Jest]("https://jestjs.io/) as it's testing framework.
+ 11. **`/__test__`**: Tests for this projects are stored in this directory. This project uses [Jest]("https://jestjs.io/) as it's testing framework.
 
-12. **`/routes`**: This directory contains our route handlers
+ 12. **`/routes`**: This directory contains our route handlers
 
-13. **`/models`**: This directory contains mongoDB models
+ 13. **`/models`**: This directory contains mongoDB models
 
-14. **`/listeners`**: This directory contains our event listeners 
+ 14. **`/listeners`**: This directory contains our event listeners 
 
-15. **`/publishers`**: This directory contains our event publishers 
+ 15. **`/publishers`**: This directory contains our event publishers 
 
-16. **`Dockerfile`**: Our docker image configuration file 
+ 16. **`Dockerfile`**: Our docker image configuration file 
 
-17. **`.dockerignore`**: This file contains the files that should be ignored while building the docker image
+ 17. **`.dockerignore`**: This file contains the files that should be ignored while building the docker image
 
-18. **`skaffold.yaml`**: Skaffold configuration file 
+ 18. **`skaffold.yaml`**: Skaffold configuration file 
 
-19. **`.gitignore`**: This file tells git which files it should not track/not maintain a version history.
+ 19. **`.gitignore`**: This file tells git which files it should not track/not maintain a version history.
 
-20. **`package-lock.json`** This is an automatically generated file based on the exact versions of  npm dependencies that were installed for the project. (You won't change this file directly).
+ 20. **`package-lock.json`** This is an automatically generated file based on the exact versions of  npm dependencies that were installed for the project. (You won't change this file directly).
 
-21. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project's name, author, etc.). This manifest is how npm knows which packages to install for the project.
+ 21. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project's name, author, etc.). This manifest is how npm knows which packages to install for the project.
 
-22. **`README.md`**: A text file containing useful reference information about the project.
+ 22. **`README.md`**: A text file containing useful reference information about the project.
 
-23. **`tsconfig.json`**: Config file for TypeScript
+ 23. **`tsconfig.json`**: Config file for TypeScript
+ 24. 
 
 
 ### Summary / Current Status
