@@ -68,6 +68,8 @@ Ticketing is a highly scalable ecommerce app built with micro-services architect
 5. **Open the source code and start editing!**
 
    The site is now running at `http://ticketing.dev`!
+   
+Quick note : to lunch jest tests cd to the wanted microservice directory and run npm test   
 
 ## 🧐 What's inside?
 
