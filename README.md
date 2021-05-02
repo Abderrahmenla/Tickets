@@ -4,17 +4,6 @@
   <a href="#">Ticketing.dev</a> site built using kubernetes with React.js, TypeScript and nodeJS.
 </p>
 
-<p align="center">
-  <a title="MIT License" href="LICENSE">
-    <img src="https://img.shields.io/github/license/gridsome/gridsome.svg?style=flat-square&label=License&colorB=6cc24a">
-  </a>
-  <a title="Follow on Twitter" href="https://twitter.com/AbderrahmenLah1">
-    <img src="https://img.shields.io/twitter/follow/Nodejs.svg?style=social&label=Follow%20@Nodejs">
-  </a>
-  <br>
-  <br>
-</p>
-
 
 # Tickets
 Ticketing is a highly scalable ecommerce app built with micro-services architecture created for learning purpose. 
