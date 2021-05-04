@@ -1,12 +1,19 @@
 <h1 align="center"><a href="#">Ticketing.dev</a></h1>
 
 <p align="center">
-  <a href="#">Ticketing.dev</a> site built using kubernetes with React.js, TypeScript and nodeJS.
+  <a href="#">Ticketing.dev</a> site built with React.js, TypeScript and nodeJS.
 </p>
 
 
 # Tickets
-Ticketing is a highly scalable ecommerce app built with micro-services architecture created for learning purpose. 
+The ticketing app is a highly scalable ecommerce platform built with micro-services architecture that allow users to list a ticket for an event (concert,sport etc.) for sale,also the user can purchase tickets.
+any user can list tickets for sale and purchase tickets.
+when a user attempts to purchase a ticket, the ticket is 'locked' for 15minutes. The user has 15minutes to enter their payment info
+while it's locked other users,
+no one can purchase a ticket if it's locked.
+after 15 minutes the ticket should be unlocked.
+ticket prices can be edited only if they are unlocked.
+the app handle concurrency issues.
 
 # Platform Features
 
