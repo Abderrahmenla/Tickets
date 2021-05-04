@@ -112,7 +112,7 @@ A quick look at some of the top-level files and directories found in this projec
 9. **`/orders`**: This micrservice is responsible for creating/updating/deleting orders built with nodeJS and mongoDB as a DB.
 
 10. **`/tickets`**: This micrservice is responsible for creating tickets/editing/deleting tickets built with nodeJS and mongoDB as a DB.
-11. **`/common`**: This is a shared libraray between microservices as an npm package.It contains all the reusable code that we will need in this app
+11. **`/common`**: This is a shared libraray between microservices as an npm package.It contains all the shareable code between microservices (e.g errors,middlewares etc.)
 
 12. **`/__test__`**: Tests for this projects are stored in this directory. This project uses [Jest]("https://jestjs.io/) as it's testing framework.
 
