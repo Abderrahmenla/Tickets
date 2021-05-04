@@ -34,7 +34,6 @@ the app handle concurrency issues.<br/>
  - MongoDB
  - ExpressJS
 
-**You can find the latest [Figma design protype here](https://www.figma.com/file/lOxAGGg5KXb6nwie7zXkz6/NJ---Design-System?node-id=22%3A6086).**
 
 ## 🚀 Get Started
 
