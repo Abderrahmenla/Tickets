@@ -83,7 +83,6 @@ A quick look at some of the top-level files and directories found in this projec
 
 ```console
 .
-├── .github
 ├── auth
 ├── client
 ├── common
