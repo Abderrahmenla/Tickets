@@ -1,21 +1,19 @@
-import Link from 'next/link'
-
+import Link from 'next/link';
+// this is index page
 const LandingPage = ({ currentUser, tickets }) => {
-  const ticketList = tickets.map(ticket => {
-    return (<tr key={ticket.id}>
-      <td>
-        {ticket.title}
-      </td>
-      <td>
-        {ticket.price}
-      </td>
-      <td>
-        <Link href="/tickets/[ticketUd]" as = {`/tickets/${ticket.id}`}>
-          <a>View</a>
-        </Link>
-      </td>
-    </tr>)
-  }) 
+  const ticketList = tickets.map((ticket) => {
+    return (
+      <tr key={ticket.id}>
+        <td>{ticket.title}</td>
+        <td>{ticket.price}</td>
+        <td>
+          <Link href="/tickets/[ticketUd]" as={`/tickets/${ticket.id}`}>
+            <a>View</a>
+          </Link>
+        </td>
+      </tr>
+    );
+  });
 
   return (
     <div>
@@ -23,25 +21,18 @@ const LandingPage = ({ currentUser, tickets }) => {
       <table className="table">
         <thead>
           <tr>
-            <th>
-              Title
-            </th>
-            <th>
-              Price
-            </th>
+            <th>Title</th>
+            <th>Price</th>
             <th>Link</th>
           </tr>
         </thead>
-        <tbody>
-          {ticketList}
-        </tbody>
+        <tbody>{ticketList}</tbody>
       </table>
     </div>
-  )
+  );
 };
 
-LandingPage.getInitialProps = async (context,client,currentUser) => {
-
+LandingPage.getInitialProps = async (context, client, currentUser) => {
   const { data } = await client.get('/api/tickets');
   return { tickets: data };
 };
