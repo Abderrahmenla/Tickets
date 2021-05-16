@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default buildClient = ({ req }) => {
   // window is an object that only exist on the browser
-  // it doesn't not exist in nodeJS
+  // it doesn't not exist in nodeJS...
   if (typeof window === 'undefined') {
     // We are on the serverr
     return axios.create({
