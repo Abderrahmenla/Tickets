@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default buildClient = ({ req }) => {
+export default ({ req }) => {
   // window is an object that only exist on the browser
   // it doesn't not exist in nodeJS...
   if (typeof window === 'undefined') {
