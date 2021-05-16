@@ -5,7 +5,6 @@ export default buildClient = ({ req }) => {
   // it doesn't not exist in nodeJS
   if (typeof window === 'undefined') {
     // We are on the server
-
     return axios.create({
       baseURL: 'http://www.ticketing-abderrahmen.club',
       headers: req.headers,
