@@ -145,7 +145,7 @@ A quick look at some of the top-level files and directories found in this projec
 
 ### Summary / Current Status
 
-My current focus is on site development.It would be really helpful if you can help in these specific areas of the app:<br/>
+My current focus is on the development of the application. It would be really helpful if you can help in these specific areas of the app :<br/>
 - Add an admin dashboard <br/>
 - Improve the UI/UX <br/>
 - Add an API Gateway <br/>
