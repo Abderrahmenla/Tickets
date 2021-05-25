@@ -145,13 +145,13 @@ A quick look at some of the top-level files and directories found in this projec
 
 ### Summary / Current Status
 
-My current focus is on site development.It would be really helpful if you can help in these specific areas of the app:
-Add an admin dashboard
-Improve the UI/UX
-Add an API Gateway
-Add circuit breaker design pattern to the app to make it more resilient
-Refactoring the client microservice (UI) into Typescript
-Add a recommendation system built on top of ML models
+My current focus is on site development.It would be really helpful if you can help in these specific areas of the app:<br/>
+-Add an admin dashboard <br/>
+Improve the UI/UX <br/>
+Add an API Gateway <br/>
+Add circuit breaker design pattern to the app to make it more resilient <br/>
+Refactoring the client microservice (UI) into Typescript <br/>
+Add a recommendation system built on top of ML models <br/>
 
 
 ### Team
