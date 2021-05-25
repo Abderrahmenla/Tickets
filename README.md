@@ -102,11 +102,11 @@ A quick look at some of the top-level files and directories found in this projec
 
 3. **`/src`**: This directory will contain all of the code related to what you will see on the front-end/logic in the backend of the app site. "Src" is a convention for "source code."
 
- 5.**`/client`**: this microservice is responsible for rendering the UI of the app (what you see in the browser), like your site header, or a page template. Built     with love and nextJS
+5.**`/client`**: this microservice is responsible for rendering the UI of the app (what you see in the browser), like your site header, or a page template. Built     with love and nextJS
 
- 6.**`/auth`**: this microservice is responsible for user authentification : signin & signup & signout. built with nodeJS-mongoDB
+6.**`/auth`**: this microservice is responsible for user authentification : signin & signup & signout. built with nodeJS-mongoDB
 
- 7.**`/expiration`** this microservice is responsible for locking/unlocking the ticket ,built with nodeJS & redis 
+7.**`/expiration`** this microservice is responsible for locking/unlocking the ticket ,built with nodeJS & redis 
 
 8. **`/payments`**: This micrservice is responsible for the payments built with nodeJS and mongoDB as a DB.
 
@@ -146,12 +146,12 @@ A quick look at some of the top-level files and directories found in this projec
 ### Summary / Current Status
 
 My current focus is on site development.It would be really helpful if you can help in these specific areas of the app:<br/>
--Add an admin dashboard <br/>
-Improve the UI/UX <br/>
-Add an API Gateway <br/>
-Add circuit breaker design pattern to the app to make it more resilient <br/>
-Refactoring the client microservice (UI) into Typescript <br/>
-Add a recommendation system built on top of ML models <br/>
+- Add an admin dashboard <br/>
+- Improve the UI/UX <br/>
+- Add an API Gateway <br/>
+- Add circuit breaker design pattern to the app to make it more resilient <br/>
+- Refactoring the client microservice (UI) into Typescript <br/>
+- Add a recommendation system built on top of ML models <br/>
 
 
 ### Team
