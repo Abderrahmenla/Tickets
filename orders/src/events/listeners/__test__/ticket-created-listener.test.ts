@@ -1,27 +1,27 @@
-import { TicketCreatedListener } from '../ticket-created-listener'
-import { natsWrapper } from '../../../nats-wrapper'
-import { TicketCreatedEvent } from '@abderrahmenlh/common'
-import mongoose from 'mongoose'
-import { Message } from 'node-nats-streaming'
-import { Ticket } from '../../../models/ticket'
+import { TicketCreatedListener } from '../ticket-created-listener';
+import { natsWrapper } from '../../../nats-wrapper';
+import { TicketCreatedEvent } from '@sgtickets/common';
+import mongoose from 'mongoose';
+import { Message } from 'node-nats-streaming';
+import { Ticket } from '../../../models/ticket';
 
 const setup = async () => {
   // create an instance of the listener
-  const listener = new TicketCreatedListener(natsWrapper.client)
+  const listener = new TicketCreatedListener(natsWrapper.client);
   // create a fake data event
   const data: TicketCreatedEvent['data'] = {
     version: 0,
     id: new mongoose.Types.ObjectId().toHexString(),
     price: 10,
     userId: new mongoose.Types.ObjectId().toHexString(),
-    title:'concert',
-  }
+    title: 'concert',
+  };
   // create a fake message object
   // @ts-ignore
   const msg: Message = {
-    ack:jest.fn()
-  }
-  return {listener,data,msg}
+    ack: jest.fn(),
+  };
+  return { listener, data, msg };
 };
 
 it('creates and saves a ticket', async () => {

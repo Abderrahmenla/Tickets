@@ -1,9 +1,9 @@
-import { TicketUpdatedListener } from '../ticket-updated-listener'
-import { natsWrapper } from '../../../nats-wrapper'
-import { Ticket } from '../../../models/ticket'
-import mongoose from 'mongoose'
-import { TicketUpdatedEvent } from '@abderrahmenlh/common'
-import { Message } from 'node-nats-streaming'
+import { TicketUpdatedListener } from '../ticket-updated-listener';
+import { natsWrapper } from '../../../nats-wrapper';
+import { Ticket } from '../../../models/ticket';
+import mongoose from 'mongoose';
+import { TicketUpdatedEvent } from '@sgtickets/common';
+import { Message } from 'node-nats-streaming';
 
 const setup = async () => {
   // create a listener
@@ -12,7 +12,7 @@ const setup = async () => {
   const ticket = Ticket.build({
     id: mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
-    price: 20
+    price: 20,
   });
   await ticket.save();
 
@@ -22,15 +22,15 @@ const setup = async () => {
     version: ticket.version + 1,
     price: 999,
     title: 'new concert',
-    userId: 'abljkhsdf'
-  }
+    userId: 'abljkhsdf',
+  };
   // create a fake msg object
   // @ts-ignore
   const msg: Message = {
     ack: jest.fn(),
-  }
+  };
   // return all of this stuff
-  return {msg,listener,data,ticket}
+  return { msg, listener, data, ticket };
 };
 
 it('find,updates,and saves a ticket', async () => {
@@ -38,9 +38,8 @@ it('find,updates,and saves a ticket', async () => {
   await listener.onMessage(data, msg);
   const updatedTicket = await Ticket.findById(ticket.id);
   expect(updatedTicket!.title).toEqual(data.title);
-  expect(updatedTicket!.price).toEqual(data.price)
-  expect(updatedTicket!.version).toEqual(data.version)
-
+  expect(updatedTicket!.price).toEqual(data.price);
+  expect(updatedTicket!.version).toEqual(data.version);
 });
 
 it('acks the message', async () => {
@@ -49,15 +48,11 @@ it('acks the message', async () => {
   expect(msg.ack).toHaveBeenCalled();
 });
 
-it('does not call ack if the event has a skipped version number',async () => {
+it('does not call ack if the event has a skipped version number', async () => {
   const { msg, data, listener, ticket } = await setup();
   data.version = 10;
   try {
     await listener.onMessage(data, msg);
-  } catch (error) {
-    
-  }
+  } catch (error) {}
   expect(msg.ack).not.toHaveBeenCalled();
-
-})
-
+});

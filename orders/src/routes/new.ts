@@ -6,7 +6,7 @@ import {
   NotFoundError,
   OrderStatus,
   BadRequestError,
-} from '@abderrahmenlh/common';
+} from '@sgtickets/common';
 import { body } from 'express-validator';
 import { Ticket } from '../models/ticket';
 import { Order } from '../models/order';
@@ -60,7 +60,7 @@ router.post(
     new OrderCreatedPublisher(natsWrapper.client).publish({
       id: order.id,
       status: order.status,
-      version:order.version,
+      version: order.version,
       userId: order.userId,
       expiresAt: order.expiresAt.toISOString(),
       ticket: {

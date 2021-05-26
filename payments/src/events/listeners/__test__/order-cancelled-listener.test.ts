@@ -1,10 +1,9 @@
 import { OrderCancelledListener } from '../order-cancelled-listener';
-import { natsWrapper } from '../../../nats-wrapper'
-import { Order } from '../../../models/order'
-import mongoose from 'mongoose'
-import { OrderStatus,OrderCancelledEvent } from '@abderrahmenlh/common'
-import { Message } from 'node-nats-streaming'
-
+import { natsWrapper } from '../../../nats-wrapper';
+import { Order } from '../../../models/order';
+import mongoose from 'mongoose';
+import { OrderStatus, OrderCancelledEvent } from '@sgtickets/common';
+import { Message } from 'node-nats-streaming';
 
 const setup = async () => {
   const listener = new OrderCancelledListener(natsWrapper.client);
@@ -13,7 +12,7 @@ const setup = async () => {
     status: OrderStatus.Created,
     price: 10,
     userId: 'asfkj',
-    version: 0
+    version: 0,
   });
 
   await order.save();
@@ -21,12 +20,12 @@ const setup = async () => {
     id: order.id,
     version: 1,
     ticket: {
-      id: 'sdftghsd'
-    }
+      id: 'sdftghsd',
+    },
   };
   // @ts-ignore
   const msg: Message = {
-    ack: jest.fn()
+    ack: jest.fn(),
   };
 
   return { listener, data, msg, order };

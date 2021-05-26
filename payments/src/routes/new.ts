@@ -7,7 +7,7 @@ import {
   NotFoundError,
   NotAuthorizedError,
   OrderStatus,
-} from '@abderrahmenlh/common';
+} from '@sgtickets/common';
 import { Order } from '../models/order';
 import { stripe } from '../stripe';
 import { Payment } from '../models/payments';
