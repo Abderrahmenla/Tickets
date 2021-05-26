@@ -1,11 +1,10 @@
-import request from 'supertest'
-import { app } from '../../app'
-import mongoose from 'mongoose'
-import { Order } from '../../models/order'
-import { OrderStatus } from '@abderrahmenlh/common'
-import { stripe } from '../../stripe'
-import { Payment } from '../../models/payments'
-
+import request from 'supertest';
+import { app } from '../../app';
+import mongoose from 'mongoose';
+import { Order } from '../../models/order';
+import { OrderStatus } from '@sgtickets/common';
+import { stripe } from '../../stripe';
+import { Payment } from '../../models/payments';
 
 it('returns a 404 when purchasing an order that does not exist', async () => {
   await request(app)
@@ -13,7 +12,7 @@ it('returns a 404 when purchasing an order that does not exist', async () => {
     .set('Cookie', global.signin())
     .send({
       token: 'askjf',
-      orderId: mongoose.Types.ObjectId().toHexString()
+      orderId: mongoose.Types.ObjectId().toHexString(),
     })
     .expect(404);
 });
@@ -24,7 +23,7 @@ it('reutrns a 401 when purchasing an order that doesnt belong to the user', asyn
     userId: mongoose.Types.ObjectId().toHexString(),
     version: 0,
     price: 20,
-    status: OrderStatus.Created
+    status: OrderStatus.Created,
   });
   await order.save();
   await request(app)
@@ -32,7 +31,7 @@ it('reutrns a 401 when purchasing an order that doesnt belong to the user', asyn
     .set('Cookie', global.signin())
     .send({
       token: 'askjf',
-      orderId: order.id
+      orderId: order.id,
     })
     .expect(401);
 });
@@ -44,7 +43,7 @@ it('returns a 400 when purchasing a cancelled order', async () => {
     userId: userId,
     version: 0,
     price: 20,
-    status: OrderStatus.Cancelled
+    status: OrderStatus.Cancelled,
   });
   await order.save();
   await request(app)
@@ -52,7 +51,7 @@ it('returns a 400 when purchasing a cancelled order', async () => {
     .set('Cookie', global.signin(userId))
     .send({
       token: 'askjf',
-      orderId: order.id
+      orderId: order.id,
     })
     .expect(400);
 });
@@ -65,7 +64,7 @@ it('returns a 204 with valid inputs', async () => {
     userId: userId,
     version: 0,
     price,
-    status: OrderStatus.Created
+    status: OrderStatus.Created,
   });
   await order.save();
   await request(app)
@@ -73,13 +72,13 @@ it('returns a 204 with valid inputs', async () => {
     .set('Cookie', global.signin(userId))
     .send({
       token: 'tok_visa',
-      orderId: order.id
+      orderId: order.id,
     })
     .expect(201);
-  
+
   const stripeCharges = await stripe.charges.list({ limit: 50 });
-  const stripeCharge = stripeCharges.data.find(charge => {
-    return charge.amount === price * 100
+  const stripeCharge = stripeCharges.data.find((charge) => {
+    return charge.amount === price * 100;
   });
   expect(stripeCharge).toBeDefined();
   expect(stripeCharge!.currency).toEqual('usd');
@@ -88,4 +87,4 @@ it('returns a 204 with valid inputs', async () => {
     stripeId: stripeCharge!.id,
   });
   expect(payment).not.toBeNull();
-})
+});
