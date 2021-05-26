@@ -152,6 +152,7 @@ My current focus is on the development of the application. It would be really he
 - Add circuit breaker design pattern to the app to make it more resilient <br/>
 - Refactoring the client microservice (UI) into Typescript <br/>
 - Add a recommendation system built on top of ML models <br/>
+- Add API documentation with swagger
 
 
 ### Team
